@@ -1,0 +1,217 @@
+@keyframes slideRight {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes btnPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 모달 레이어 전체 */
+.modal-layer {
+  display: none;
+  font-family: "Pretendard";
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0; left: 0;
+  z-index: 1002;
+}
+
+.modal-layer.open {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1001;
+}
+
+/* 모달 닫기 버튼 */
+.modal-layer .btn-modal-close {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s all;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.modal-layer .btn-modal-close:hover {
+  animation: btnPop 0.3s both;
+}
+
+.modal-layer .btn-modal-close .bar {
+  width: 25px;
+  height: 1px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: all 0.2s ease;
+}
+
+.modal-layer .btn-modal-close:hover .bar {
+  background-color: #fff;
+  height: 2px;
+}
+
+.modal-layer .btn-modal-close.open .bar:nth-child(1) {
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.modal-layer .btn-modal-close.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.modal-layer .btn-modal-close.open .bar:nth-child(3) {
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+
+/* 모달 컨텐츠 */
+.modal-content {
+  /* border: 3px solid blue; */
+  background: #fff;
+  width: 50%;
+  min-width: 280px;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 모달 탑 공통 */
+.modal-content .modal-content-top {
+  background-color: #ED0C0C;
+  min-height: 214px;
+  padding-left: 25px;
+  padding-top: 50px;
+}
+
+.modal-content .modal-content-top p {
+  margin-bottom: 0;
+  color: #fff;
+  line-height: 35px;
+  font-weight: 500;
+}
+
+.modal-content .modal-content-top.guest p:nth-child(1){
+  font-size: 20px;
+}
+
+.modal-content .modal-content-top.guest p:nth-child(2){
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.modal-content .modal-content-top .btn-modal-login {
+  border: 2px solid #fff;
+  background-color: #ffffff00;
+  border-radius: 30px;
+  width: 104px;
+  min-height: 45px;
+  font-size: 20px;
+  transition: 0.2s all;
+}
+
+.modal-content .modal-content-top .btn-modal-login:hover {
+  background-color: #ffffff33;
+}
+
+/* 모달 탑 로그인 */
+.modal-content .modal-content-top.auth .greeting {
+  margin-bottom: 8px;
+  background-color: #970202;
+  border-radius: 30px;
+  width: 100px;
+  min-height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.modal-content .modal-content-top.auth p {
+  line-height: 30px;
+}
+.modal-content .modal-content-top.auth p:nth-child(2){
+  font-size: 20px
+}
+
+.modal-content .modal-content-top.auth p:nth-child(3){
+  font-size: 26px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.modal-content .modal-nav {
+  margin: 0;
+  margin-top: 15px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content .modal-nav-menu {
+  margin: 0;
+  padding-left: 25px
+}
+
+.modal-content .modal-nav .modal-nav-menu a {
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  color: #191919;
+  font-size: 20px;
+  font-weight: 500;
+  transition: 0.2s all;
+}
+
+.modal-content .modal-nav .modal-nav-menu a:hover {
+
+
+  color: #191919;
+  font-weight: 700;
+}
+
+.modal-content .modal-nav .modal-nav-menu.active {
+  animation: 0.3s slideRight both;
+}
+
+.modal-content .modal-nav .modal-nav-menu:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.modal-content .modal-nav .modal-nav-menu:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@media (min-width: 768px) {
+  .modal-layer {
+    display: none;
+  }
+}
